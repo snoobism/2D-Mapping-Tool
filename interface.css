@@ -1,0 +1,97 @@
+body{
+    margin:0 auto;
+    overflow: hidden;
+}
+#output{
+    margin:0 auto;
+    width:65vw;
+    height: 100vh;
+    display:inline-block;
+    background-color:#333333;
+    float:left;
+
+}
+#tabel{
+    width:60vw;
+    height: 95vh;
+    margin-left:2.5vw;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    overflow-x:scroll;
+    user-select: none;
+}
+#input{
+    margin:0 auto;
+    background-color:#121212;
+    width:35vw;
+    height: 100vh;
+    display:inline-block;
+    float:left;
+}
+#grid_cont{
+    text-align: center;
+    margin-top:5vh;
+}
+span{
+    color:white;
+}
+input{
+    width:10vw;
+    height: 5vh;
+}
+#search{
+    width:20vw;
+    height: 5vh;
+    margin-top:5vh;
+    margin-left:7.5vw;
+    background-color:white;
+    cursor:pointer;
+}
+#elements{
+    width:30vw;
+    height: 65vh;
+    margin-top:5vh;
+    margin-left:2.5vw;
+    background-color:white;
+    overflow-y:scroll;
+}
+#create{
+    text-align: center;
+    font-size:4vh;
+    color:black;
+    width:10vw;
+    height: 5vh;
+    margin-top:2.5vh;
+    margin-left:5vw;
+    background-color:white;
+    display: inline-block;
+    vertical-align: middle;
+    cursor:pointer;
+}
+#output_text{
+    text-align: center;
+    color:black;
+    width:10vw;
+    height: 5vh;
+    margin-top:2.5vh;
+    margin-left:5vw;
+    background-color:white; 
+    display: inline-block;
+    overflow: scroll;
+    vertical-align: middle;
+    cursor:pointer;
+
+}
+.element{
+    width:5.5vw;
+    height: 5.5vw;
+    margin-left:1vw;
+    margin-top:1vw;
+    display: inline-block;
+    cursor:pointer;
+    box-shadow:0px 0px 5px black;
+    background-repeat: no;
+    background-position: contain;
+    background-size: 100% 100%;
+}
