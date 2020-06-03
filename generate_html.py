@@ -1,7 +1,7 @@
 from os import listdir
 files = [f.rsplit('.', 1)[0] for f in listdir("img/")]
 
-file = open(f"interface.html", "w")
+file = open(f"index.html", "w")
 file.write(f"""
 <html>
 <head>
