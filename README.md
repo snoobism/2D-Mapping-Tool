@@ -7,8 +7,14 @@ After setting the parameters of the map, you can then *populate it using the sym
 #
 Once you are finished with your map, you can then press the **SHOW** button and your layout will apear as a 2D text matrix in a pop-up message.
 #
-The text representing the images in the matrix is their filename without their extension.
+The text representing the images in the matrix is their **filename without their extension**.
+### Exception!
+The only image file that does not get represented by it's filename is ***delete***. Instead, it add a space character (' ').
 # SETUP to add own images
-1) Add images to **/img** folder
+1) Add images to **img/** folder
 2) Run **generate_html.py** using Python3 
 3) Voila! You have added your own symbols.
+
+# Preview
+You can get a taste of how the application works by accessing https://snoobism.github.io/2D-Mapping-Tool/ (currently using sprites from https://snoobism.github.io/roguelite-game/)
+
