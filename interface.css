@@ -39,6 +39,8 @@ span{
 input{
     width:10vw;
     height: 5vh;
+    vertical-align: middle;
+    text-align: center;
 }
 #search{
     width:20vw;
@@ -47,6 +49,13 @@ input{
     margin-left:7.5vw;
     background-color:white;
     cursor:pointer;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0px 0px 15px black;
+    font-family: "Impact";
+    font-size:4vh;
+    border-radius:5%;
+
 }
 #elements{
     width:30vw;
@@ -58,7 +67,6 @@ input{
 }
 #create{
     text-align: center;
-    font-size:4vh;
     color:black;
     width:10vw;
     height: 5vh;
@@ -66,8 +74,31 @@ input{
     margin-left:5vw;
     background-color:white;
     display: inline-block;
+    text-align: center;
     vertical-align: middle;
+    box-shadow: 0px 0px 15px black;
+    font-family: "Impact";
+    font-size:4vh;
     cursor:pointer;
+    border-radius:5%;
+}
+#clear_table{
+    text-align: center;
+    color:black;
+    width:10vw;
+    height: 5vh;
+    margin-top:2.5vh;
+    margin-left:5vw;
+    background-color:white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0px 0px 15px black;
+    font-family: "Impact";
+    font-size:4vh;
+    cursor:pointer; 
+    border-radius:5%;
+
 }
 #output_text{
     text-align: center;
@@ -81,7 +112,7 @@ input{
     overflow: scroll;
     vertical-align: middle;
     cursor:pointer;
-
+    display: none;
 }
 .element{
     width:5.5vw;

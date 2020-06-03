@@ -1,4 +1,8 @@
+from os import listdir
+files = [f.rsplit('.', 1)[0] for f in listdir("img/")]
 
+file = open(f"interface.html", "w")
+file.write(f"""
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -23,7 +27,15 @@
             <input type="number" id="size" placeholder="Size of tile" onchange="tileSizeChange()">
         </div>
         <div id="search" onclick="createMap()">CREATE</div>
-        <div id="elements"> 		<div class='element' id='c' alt='c'></div>		<div class='element' id='con0' alt='con0'></div>		<div class='element' id='con1' alt='con1'></div>		<div class='element' id='con2' alt='con2'></div>		<div class='element' id='delete' alt=' '></div>		<div class='element' id='e1' alt='e1'></div>		<div class='element' id='e2' alt='e2'></div>		<div class='element' id='r' alt='r'></div>		<div class='element' id='w' alt='w'></div>
+        <div id="elements"> """)
+
+for file_name in files:
+	if file_name == "delete":
+		file.write(f"		<div class='element' id='{file_name}' alt=' '></div>")
+	else:
+		file.write(f"		<div class='element' id='{file_name}' alt='{file_name}'></div>")
+
+file.write(f"""
         </div>
         <div id="buttons"> 
             <div id="create" onclick="createMatrix()">
@@ -36,4 +48,5 @@
 
     </div>
     </div>
-</body>
+</body>""")
+

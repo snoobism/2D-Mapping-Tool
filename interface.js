@@ -1,44 +1,46 @@
-var casuta=[];
+var cell=[];
 var select;
 var arr_alt=".";
-var matrice=[];
+var matrix=[];
 var rows,columns;
 var isOnDiv = false;
+var cell = [];
+var row_cells = [];
 
 function createMap() {
-    var casuta = [];
-    var rand = [];
     rows = document.getElementById("rows").value;
     columns = document.getElementById("columns").value;
+    let size = document.getElementById("size").value;
+
     document.getElementById("tabel").innerHTML=" ";
-    for (var i = 0; i <= rows - 1; i++) {
-            rand[i] = document.createElement("div");
-            rand[i].style.display = 'block';
-            rand[i].id = "rand" + i;
-            rand[i].style.whiteSpace='nowrap';
-            document.getElementById("tabel").appendChild(rand[i]);
-            casuta[i] = [];  
-            for (var j = 0; j <= columns - 1; j++)
+    for (var i = 0; i < rows; i++) {
+            row_cells[i] = document.createElement("div");
+            row_cells[i].style.display = 'block';
+            row_cells[i].id = "row_cells" + i;
+            row_cells[i].style.whiteSpace='nowrap';
+            document.getElementById("tabel").appendChild(row_cells[i]);
+            cell[i] = [];  
+            for (var j = 0; j < columns; j++)
             {
-                casuta[i][j] = document.createElement("div");
-                casuta[i][j].id="casuta"+i+"_"+j;
-                casuta[i][j].style.width = "8vh";
-                casuta[i][j].style.height = "8vh";
-                casuta[i][j].style.display = 'inline-block';
-                casuta[i][j].style.backgroundColour = "white";
-                casuta[i][j].style.backgroundRepeat = "no-repeat";
-                casuta[i][j].style.backgroundPosition = "contain";
-                casuta[i][j].style.backgroundSize = "100% 100%";
-                casuta[i][j].style.boxShadow="0px 0px 5px black";
-                casuta[i][j].className = 'tile';
+                cell[i][j] = document.createElement("div");
+                cell[i][j].id="cell"+i+"_"+j;
+                cell[i][j].style.width = size + "vh";
+                cell[i][j].style.height = size + "vh";
+                cell[i][j].style.display = 'inline-block';
+                cell[i][j].style.backgroundColour = "white";
+                cell[i][j].style.backgroundRepeat = "no-repeat";
+                cell[i][j].style.backgroundPosition = "contain";
+                cell[i][j].style.backgroundSize = "100% 100%";
+                cell[i][j].style.boxShadow="0px 0px 5px black";
+                cell[i][j].className = 'tile';
                 if(i == 0 || j == 0 || i == rows-1 || j == columns - 1){
-                    casuta[i][j].setAttribute("alt", "w");
-                    casuta[i][j].style.backgroundImage = "url(img/w.png)";
+                    cell[i][j].setAttribute("alt", "w");
+                    cell[i][j].style.backgroundImage = "url(img/w.png)";
                 }
                 else{
-                    casuta[i][j].setAttribute("alt", " ");
+                    cell[i][j].setAttribute("alt", " ");
                 }
-                document.getElementById("rand" + i).appendChild(casuta[i][j]);
+                document.getElementById("row_cells" + i).appendChild(cell[i][j]);
 
             }
     }
@@ -48,7 +50,6 @@ function createMap() {
     $(".tile").mouseenter(function(){
         if(isOnDiv == true){
             schimba(this);
-            console.log("A");
         }
     });
 }
@@ -57,6 +58,7 @@ function schimba(a){
     a.style.backgroundImage=select;
     a.setAttribute("alt", arr_alt);
 }
+
 $(document).ready(function() {
     var inputIcons = document.getElementsByClassName("element");
     $(".element").click(function() {    
@@ -71,37 +73,39 @@ $(document).ready(function() {
     }
 
 });
+
 function createMatrix(){
     for(var i=0;i<=rows-1;i++)
         {
-            matrice[i]=[];
+            matrix[i]=[];
             for(var j=0;j<=columns-1;j++)
                 {   
-                    matrice[i][j]=$("#casuta"+i+"_"+j).attr("alt");
+                    matrix[i][j]=$("#cell"+i+"_"+j).attr("alt");
                 }
         }
-    afisare();
+    showMatrix();
 }
-function afisare(){
+
+function showMatrix(){
     var string;
     document.getElementById("output_text").innerHTML="";
     for(var i=0;i<=rows-1;i++)
         {   
-            string="[";
-            for(var j=0;j<=columns-1;j++)
+            string="{";
+            for(var j=0;j < columns;j++)
                 {
                     if(j != columns-1){
-                        string+="'" + matrice[i][j] + "',";   
+                        string+="'" + matrix[i][j] + "',";   
                     }
                     else{
-                        string+="'" + matrice[i][j] + "'";   
+                        string+="'" + matrix[i][j] + "'";   
                     }
                 }
             if(i == rows-1 && j == columns){
-                string+="]";
+				string+="}";
             }
             else{
-                string+="], \n";
+				string+="}, \n";
             }
             document.getElementById("output_text").innerHTML+=string;
         }
@@ -109,4 +113,18 @@ function afisare(){
 
     window.alert(document.getElementById("output_text").innerHTML);
 
+}
+
+function clearTable(){
+    document.getElementById("tabel").innerHTML = "";
+}
+
+function tileSizeChange(){
+    let tiles = document.getElementsByClassName("tile");
+    let size = document.getElementById("size").value;
+
+    for (let i=0; i < tiles.length; i++) {
+        tiles[i].style.width = size + "vh";
+        tiles[i].style.height = size + "vh";
+    }
 }
